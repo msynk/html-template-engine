@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="container1"></div>
+    <div id="container2"></div>
+
+    <script src="tmpl.js"></script>
+    <script>
+        var t = tmpl(`<div>
+        {{ if (this.a==1) { }}
+            <span>this is 1</span>
+        {{ } else { }}
+            <span>this is not 1</span>
+        {{ } }}
+        </div>`);
+
+        var container1 = document.getElementById('container1');
+        container1.innerHTML = t({ a: 1 });
+
+        var container2 = document.getElementById('container2');
+        container2.innerHTML = t({ a: 0 });
+    </script>
+</body>
+
+</html>
